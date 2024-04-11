@@ -14,13 +14,11 @@ import java.util.Scanner;
  */
 
 public class Comando {
-
     private String nome;
     private String parametro;
-
+    
     public Comando(String istruzione) {
 		Scanner scannerDiParole = new Scanner(istruzione);
-
 		// prima parola: nome del comando
 		if (scannerDiParole.hasNext())
 			this.nome = scannerDiParole.next(); 

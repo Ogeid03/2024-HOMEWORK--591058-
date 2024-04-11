@@ -160,7 +160,7 @@ public class DiaDia {
 		  } else {
 			  IO.mostraMessaggio("       (Attrezzo inesistente)\n" + partita.getPlayer().getZaino().getDescrizione());
 		    }
-		} else IO.mostraMessaggio("Non ci sono attrezzi nella borsa");		;
+		} else IO.mostraMessaggio("Non ci sono attrezzi nella borsa");
 	}
 
 	/**
