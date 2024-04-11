@@ -9,7 +9,7 @@ import java.util.Scanner;
  * (Ad es. alla riga digitata dall'utente "vai nord"
  *  corrisponde un comando di nome "vai" e parametro "nord").
  *
- * @author  docente di POO
+ * @author  docente di POO, Diego De Martino
  * @version base 1.0
  */
 

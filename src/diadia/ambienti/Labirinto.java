@@ -6,7 +6,7 @@ import diadia.attrezzi.Attrezzo;
 /**
  * Labirinto, questa classe modella la mappa di gioco
  * 
- * @author d1390
+ * @author Diego De Martino
  * @see Partita
  * @see Stanza
  * @version base 1.0

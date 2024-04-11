@@ -6,7 +6,7 @@ import diadia.giocatore.Giocatore;
 /**
  * Questa classe modella una partita del gioco
  *
- * @author  docente di POO
+ * @author  docente di POO, Diego De Martino
  * @see Labirinto
  * @version base 1.0
  */

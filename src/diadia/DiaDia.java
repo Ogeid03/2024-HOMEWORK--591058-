@@ -10,14 +10,13 @@ import diadia.ambienti.Stanza;
  *
  * Questa e' la classe principale crea e istanzia tutte le altre
  *
- * @author  docente di POO 
+ * @author  docente di POO, Diego De Martino
  *         (da un'idea di Michael Kolling and David J. Barnes) 
  *          
- * @version base 1.0
+ * @version base 1.0.0
  */
 
 public class DiaDia { 
-
 	static final private String MESSAGGIO_BENVENUTO = ""+
 			"Ti trovi nell'Universita', ma oggi e' diversa dal solito...\n" +
 			"Meglio andare al piu' presto in biblioteca a studiare. Ma dov'e'?\n"+

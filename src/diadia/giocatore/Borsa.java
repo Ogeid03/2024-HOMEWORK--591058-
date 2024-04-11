@@ -2,6 +2,17 @@ package diadia.giocatore;
 
 import diadia.attrezzi.Attrezzo;
 
+
+/**
+ * Classe Borsa 
+ * La borsa contiene tutti gli attrezzi che un giocatore vuole raccogliere
+ * entro il limite di peso
+ * 
+ * @author docente di POO, Diego De Martino
+ * @see Attrezzo
+ * @see Giocatore
+ * @version base 1.0
+*/
 public class Borsa {
 	
 	public final static int DEFAULT_PESO_MAX_BORSA = 10;

@@ -8,7 +8,7 @@ import diadia.ambienti.Stanza;
  * del labirinto.
  * Ogni attrezzo ha un nome ed un peso.
  *
- * @author  docente di POO
+ * @author  docente di POO, Diego De Martino
  * @see Stanza
  * @version base
  */

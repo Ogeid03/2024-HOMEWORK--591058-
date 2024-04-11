@@ -8,7 +8,7 @@ import diadia.attrezzi.Attrezzo;
  * E' collegata ad altre stanze attraverso delle uscite.
  * Ogni uscita e' associata ad una direzione.
  * 
- * @author docente di POO 
+ * @author docente di POO, Diego De Martino
  * @see Attrezzo
  * @version base 1.0
 */

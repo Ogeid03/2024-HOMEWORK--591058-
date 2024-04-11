@@ -1,5 +1,12 @@
 package diadia.giocatore;
 
+/**
+ * Classe Giocatore - un giocatore per un gioco di ruolo.
+ *  
+ * @author Diego De Martino
+ * @see Borsa
+ * @version base 1.0
+*/
 public class Giocatore {
 	
 	static final private int CFU_INIZIALI = 20;
