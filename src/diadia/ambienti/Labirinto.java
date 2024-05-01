@@ -18,6 +18,25 @@ public class Labirinto {
 	
 	/**
      * Crea tutte le stanze e le porte di collegamento
+     * 
+     * 
+     *   ___________________________________________________________
+  		|                   |                   |                   |
+  		|                   |     Biblioteca    |                   |
+  		|    Laboratorio    |        	        |     Aule 11	    |
+  		|                   |                   |        	        |
+  		|                   |_________X_________|                   |
+  		|                   |                   |                   |
+  		|                   |                   |                   |
+  		<-                  X       Atrio       X                  ->
+  		|                   |                   |                   |
+  		|                   |_________X_________|                   |
+  		|                   |                   |                   |
+  		|                   |                   |                   |
+  		|                   X                   X                   |
+  		|                   |       Aule 10     |                   |
+  		|___________________|___________________|___________________|
+	 *
      */
     public void init() {
 
