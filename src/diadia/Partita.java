@@ -16,10 +16,12 @@ public class Partita {
 	private Labirinto maze = new Labirinto();
 	private boolean finita;
 	private Giocatore player = new Giocatore();
+	private IO io;
 	
-	public Partita(){
+	public Partita(IO io){
 		this.maze.init();
 		this.finita = false;
+		this.io = io;
 	}
 
 	/**
@@ -50,7 +52,16 @@ public class Partita {
 		return this.player;
 	}
 	
+	public boolean giocatoreIsVivo() {
+		if(this.player.getCFU() == 0) return false;
+		return true;
+	}
+	
 	public Labirinto getLabirinto() {
 		return this.maze;
+	}
+	
+	public IO getIO() {
+		return this.io;
 	}
 }
