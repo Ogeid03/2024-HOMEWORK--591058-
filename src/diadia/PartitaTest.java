@@ -4,9 +4,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import diadia.ambienti.Labirinto;
+
 class PartitaTest {
 	IO io = new IOConsole();
-	Partita game = new Partita(io);
+	Labirinto labirinto = new Labirinto();
+	Partita game = new Partita(io, labirinto);
 	
 	@Test
 	public void testIsFinitaFinita(){

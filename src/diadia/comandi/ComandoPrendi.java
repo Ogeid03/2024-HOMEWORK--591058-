@@ -23,7 +23,7 @@ public class ComandoPrendi implements Comando{
 			partita.getIO().mostraMessaggio("Quale attrezzo vuoi prendere ? (Devi specificare un Attrezzo)");
 			return;
 		}
-		if(partita.getLabirinto().getStanzaCorrente().getAttrezzi()[0]!=null) { 
+		if(partita.getLabirinto().getStanzaCorrente().getAttrezzi().size() != 0) { 
 			 if(partita.getLabirinto().getStanzaCorrente().hasAttrezzo(this.attrezzo)==true) {
 				  
 				 partita.getPlayer().getZaino().addAttrezzo(partita.getLabirinto().getStanzaCorrente().getAttrezzo(this.attrezzo));

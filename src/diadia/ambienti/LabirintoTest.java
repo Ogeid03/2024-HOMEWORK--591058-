@@ -10,7 +10,8 @@ import diadia.Partita;
 
 class LabirintoTest {
 	IO io = new IOConsole();
-	Partita game = new Partita(io);
+	Labirinto labirinto = new Labirinto();
+	Partita game = new Partita(io, labirinto);
 	Stanza S = new Stanza("test");
 
 	@Test

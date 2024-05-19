@@ -22,7 +22,7 @@ public class ComandoPosa implements Comando{
 			partita.getIO().mostraMessaggio("Quale Attrezzo vuoi posare ? (Devi specificare un Attrezzo)");
 			return;
 		}	
-		if(partita.getPlayer().getZaino().getAttrezzi()[0]!=null) {
+		if(partita.getPlayer().getZaino().getAttrezzi().size() != 0) {
 			if(partita.getPlayer().getZaino().hasAttrezzo(this.attrezzo)==true) {
 				
 				partita.getLabirinto().getStanzaCorrente().addAttrezzo(partita.getPlayer().getZaino().getAttrezzo(this.attrezzo));

@@ -26,7 +26,7 @@ class ComandoPosaTest {
 
 		this.comandoPosa.esegui(this.partita);
 		
-		assertNull(this.partita.getPlayer().getZaino().getAttrezzi()[0]);
+		assertFalse(this.partita.getPlayer().getZaino().hasAttrezzo(attrezzoTest.getNome()));
 	}
 	
 	@Test

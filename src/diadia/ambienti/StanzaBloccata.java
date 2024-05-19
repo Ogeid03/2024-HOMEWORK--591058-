@@ -28,9 +28,8 @@ public class StanzaBloccata extends Stanza{
 		if(direzione.equals(this.lockedDoor) && !(this.hasAttrezzo(this.KEY))) 
 			return this;
 		Stanza stanza = null;
-		for(int i=0; i< this.stanzeAdiacenti.length; i++)
-			if (this.getDirezioni()[i].equals(direzione))
-				stanza = this.stanzeAdiacenti[i];
+		if (this.Direzione_stanzeAdiacenti.containsKey(direzione))
+			stanza = this.Direzione_stanzeAdiacenti.get(direzione);
 		return stanza;
 		
 	}

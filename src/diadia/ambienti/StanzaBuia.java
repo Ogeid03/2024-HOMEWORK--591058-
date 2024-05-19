@@ -24,7 +24,6 @@ public class StanzaBuia extends Stanza{
 			risultato.append(this.getNome());
 			risultato.append("\nUscite: ");
 			for (String direzione : this.getDirezioni())
-				if (direzione!=null)
 					risultato.append(" " + direzione);
 			risultato.append("\n" + this.getDescrizioneAttrezzi());
 		}else risultato.append("Qui c'è buio pesto...");

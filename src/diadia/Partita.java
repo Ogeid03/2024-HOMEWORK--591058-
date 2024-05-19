@@ -13,15 +13,15 @@ import diadia.giocatore.Giocatore;
 
 public class Partita {
 
-	private Labirinto maze = new Labirinto();
+	private Labirinto maze;
 	private boolean finita;
 	private Giocatore player = new Giocatore();
 	private IO io;
 	
-	public Partita(IO io){
-		this.maze.init();
+	public Partita(IO io, Labirinto maze){
 		this.finita = false;
 		this.io = io;
+		this.maze = maze;
 	}
 
 	/**

@@ -1,6 +1,8 @@
 package diadia;
 
 
+import diadia.ambienti.Labirinto;
+import diadia.ambienti.LabirintoBuilder;
 import diadia.comandi.Comando;
 import diadia.comandi.FabbricaDiComandiFisarmonica;
 
@@ -32,16 +34,17 @@ public class DiaDia {
 
 	Partita partita;
 	IO iO;
+	static Labirinto labirinto;
 	private boolean flag = false;;
 
 	public DiaDia(IO io) {
 		this.iO = io;
-		this.partita = new Partita(iO);
+		this.partita = new Partita(iO, labirinto);
 	}
 	
 	public DiaDia() {
 		this.iO = new IOConsole();
-		this.partita = new Partita(iO);
+		this.partita = new Partita(iO, labirinto);
 	}
 
 	public void gioca() {
@@ -75,6 +78,13 @@ public class DiaDia {
 	
 	public static void main(String[] argc) {
 		IO io = new IOConsole();
+		
+		labirinto = new LabirintoBuilder()
+				.addStanzaIniziale("LabCampusOne")
+				.addStanzaVincente("Biblioteca")
+				.addAdiacenza("LabCampusOne","Biblioteca","ovest")
+				.getLabirinto();
+		
 		DiaDia gioco = new DiaDia(io);
 		gioco.gioca();
 	}
