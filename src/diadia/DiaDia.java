@@ -16,7 +16,7 @@ import diadia.comandi.FabbricaDiComandiFisarmonica;
  * @author  docente di POO, Diego De Martino
  *         (da un'idea di Michael Kolling and David J. Barnes) 
  *          
- * @version base 1.0.0
+ * @version base 3.1
  */
 
 public class DiaDia { 
@@ -43,6 +43,11 @@ public class DiaDia {
 	}
 	
 	public DiaDia() {
+		this.iO = new IOConsole();
+		this.partita = new Partita(iO, labirinto);
+	}
+
+	public DiaDia(IOSimulator io, Labirinto labirinto) {
 		this.iO = new IOConsole();
 		this.partita = new Partita(iO, labirinto);
 	}
@@ -76,13 +81,14 @@ public class DiaDia {
 		return this.partita.isFinita();
 	}   
 	
+	
 	public static void main(String[] argc) {
 		IO io = new IOConsole();
 		
 		labirinto = new LabirintoBuilder()
 				.addStanzaIniziale("LabCampusOne")
 				.addStanzaVincente("Biblioteca")
-				.addAdiacenza("LabCampusOne","Biblioteca","ovest")
+				.addAdiacenza("ovest", "LabCampusOne","Biblioteca")
 				.getLabirinto();
 		
 		DiaDia gioco = new DiaDia(io);

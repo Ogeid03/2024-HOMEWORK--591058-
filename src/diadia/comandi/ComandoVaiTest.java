@@ -7,11 +7,13 @@ import org.junit.jupiter.api.Test;
 import diadia.IO;
 import diadia.IOConsole;
 import diadia.Partita;
+import diadia.ambienti.Labirinto;
 
 class ComandoVaiTest {
 	
 	IO io = new IOConsole();
-	Partita partita = new Partita(io);
+	Labirinto labirinto = new Labirinto();
+	Partita partita = new Partita(io, labirinto);
 	Comando comandoVai;
 	FabbricaDiComandiFisarmonica factory = new FabbricaDiComandiFisarmonica();
 	

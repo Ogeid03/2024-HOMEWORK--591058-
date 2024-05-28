@@ -1,8 +1,20 @@
 package diadia.comandi;
 
 import diadia.Partita;
+import diadia.ambienti.Labirinto;
 import diadia.ambienti.Stanza;
 
+/**
+ * Questa classe modella un comando di gioco.
+ * Richiamando il metodo ESEGUI viene aggiornata la
+ * STANZA_CORRENTE con quella presente nella DIREZIONE 
+ * passata come parametro, ove presente, altrimenti ritorna 
+ * la STANZA attuale.
+ * 
+ * @author Diego De Martino
+ * @see Labirinto
+ * @version base 3.1
+ */
 public class ComandoVai implements Comando {
 	private String direzione;
 

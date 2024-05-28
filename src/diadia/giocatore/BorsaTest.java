@@ -2,8 +2,10 @@ package diadia.giocatore;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.SortedSet;
 
 //import java.util.Map;
 //import java.util.TreeMap;
@@ -18,7 +20,7 @@ class BorsaTest {
 	private Attrezzo A = new Attrezzo("testPiuma", 1);
 	private Attrezzo B = new Attrezzo("testFoglia", 1);
 	private Attrezzo C  = new Attrezzo("testAnvil", 11);
-	private Attrezzo D  = new Attrezzo("testAnvil", 5);
+	private Attrezzo D  = new Attrezzo("testStone", 5);
 	
 	/*Map<Integer, Attrezzo> Dora = new TreeMap<>();
 	
@@ -60,7 +62,9 @@ class BorsaTest {
 		bag.addAttrezzo(A);
 		bag.addAttrezzo(B);
 		
-		assertEquals(this.bag.getAttrezzi(), bag.getContenutoOrdinatoPerNome());		
+		SortedSet<Attrezzo> ContenutoOrdinato = bag.getContenutoOrdinatoPerNome();
+		
+		assertEquals("{testFoglia, testPiuma}", bag.toString(ContenutoOrdinato));		
 	}
 	
 	@Test
@@ -75,9 +79,42 @@ class BorsaTest {
 		      attr.getPeso());
 		});*/
 		
-		assertEquals("testAnvil", bag.getContenutoOrdinatoPerPeso().get(0).getNome());
-		assertEquals("testFoglia", bag.getContenutoOrdinatoPerPeso().get(1).getNome());
-		assertEquals("testPiuma", bag.getContenutoOrdinatoPerPeso().get(2).getNome());		
+		//System.out.println(bag.getContenutoOrdinatoPerPeso());
+		
+		assertEquals("testFoglia", bag.getContenutoOrdinatoPerPeso().get(0).getNome());
+		assertEquals("testPiuma", bag.getContenutoOrdinatoPerPeso().get(1).getNome());
+		assertEquals("testStone", bag.getContenutoOrdinatoPerPeso().get(2).getNome());		
+	}
+	
+	@Test
+	public void testSortedSetOrdinaPerPeso() {
+		
+		bag.addAttrezzo(A);
+		bag.addAttrezzo(D);
+		bag.addAttrezzo(B);
+		
+		
+		//System.out.println(bag.getSortedSetOrdinatoPerPeso());
+		
+		assertEquals("testFoglia", bag.getContenutoOrdinatoPerPeso().get(0).getNome());
+		assertEquals("testPiuma", bag.getContenutoOrdinatoPerPeso().get(1).getNome());
+		assertEquals("testStone", bag.getContenutoOrdinatoPerPeso().get(2).getNome());		
+	}
+	
+	public void testGetContenutoOrdinatoPerPesoBorsaVuota() {
+	    List<Attrezzo> contenutoOrdinato = bag.getContenutoOrdinatoPerPeso();
+	    assertTrue(contenutoOrdinato.isEmpty());
+	}
+	@Test
+	public void testGetContenutoOrdinatoPerPesoDuplicati() {
+	    bag.addAttrezzo(new Attrezzo("Chiave", 5));
+	    bag.addAttrezzo(new Attrezzo("Chiave", 10));
+	    List<Attrezzo> contenutoOrdinato = bag.getContenutoOrdinatoPerPeso();
+	    for (int i = 1; i < contenutoOrdinato.size(); i++) {
+	        Attrezzo attrezzoPrecedente = contenutoOrdinato.get(i - 1);
+	        Attrezzo attrezzoCorrente = contenutoOrdinato.get(i);
+	        assertTrue(attrezzoPrecedente.getPeso() <= attrezzoCorrente.getPeso());
+	    }
 	}
 	
 	@Test
@@ -87,22 +124,35 @@ class BorsaTest {
 		bag.addAttrezzo(D);
 		bag.addAttrezzo(B);
 		
+
 		Map<Integer, Set<Attrezzo>> contenutoRaggruppato = bag.getContenutoRaggruppatoPerPeso();
+		//System.out.println(bag.toString(contenutoRaggruppato));
 		
-        assertEquals(2, contenutoRaggruppato.size());
-        assertTrue(contenutoRaggruppato.containsKey(1));
-        assertTrue(contenutoRaggruppato.containsKey(5));
-        assertFalse(contenutoRaggruppato.containsKey(15));
+		assertEquals(2, contenutoRaggruppato.size());
+		assertTrue(contenutoRaggruppato.containsKey(1));
+		assertTrue(contenutoRaggruppato.containsKey(5));
+		assertFalse(contenutoRaggruppato.containsKey(15));
+		
 	}
 	
-	@Test 
-	public void testStampe() {
+	@Test
+    public void testAttrezziDiversiConStessoPeso() {     
+        bag.addAttrezzo(A);
+        bag.addAttrezzo(B);
+        SortedSet<Attrezzo> sortedSetOrdinato = bag.getSortedSetOrdinatoPerPeso();
+        assertTrue(sortedSetOrdinato.contains(A));
+        assertTrue(sortedSetOrdinato.contains(B));
+
+        assertNotEquals(A, B);
+    }
+	
+	@Test
+	public void testGetDescrizione() {
 		bag.addAttrezzo(A);
 		bag.addAttrezzo(D);
 		bag.addAttrezzo(B);
 		
-		System.out.println(bag.getContenutoOrdinatoPerNome().toString());
+		assertEquals("Contenuto borsa (7kg/10kg)= testFoglia:1  testPiuma:1  testStone:5  ", bag.getDescrizione());
 	}
-	
 	
 }

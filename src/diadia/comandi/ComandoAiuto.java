@@ -1,7 +1,18 @@
 package diadia.comandi;
 
 import diadia.Partita;
+import diadia.ambienti.Labirinto;
 
+/**
+ * Questa classe modella un comando di gioco.
+ * Richiamando il metodo ESEGUI vengono riportati in output
+ * all'utente i dati relativi alla STANZA.
+ * 
+ * @author Diego De Martino
+ * @see Labirinto
+ * @see Borsa
+ * @version base 3.1
+ */
 public class ComandoAiuto implements Comando {
 	static final private String[] elencoComandi = {"vai", "prendi", "posa", "guarda", "aiuto", "fine"};
 	//private IOConsole IO = new IOConsole();

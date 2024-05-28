@@ -2,26 +2,28 @@ package diadia.ambienti;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import diadia.IO;
-import diadia.IOConsole;
-import diadia.Partita;
-
 class LabirintoTest {
-	IO io = new IOConsole();
-	Labirinto labirinto = new Labirinto();
-	Partita game = new Partita(io, labirinto);
-	Stanza S = new Stanza("test");
+	static Labirinto labirinto;
+	
 
+	@BeforeEach
+	public void init() {
+		labirinto = new LabirintoBuilder().addStanzaIniziale("LabCampusOne")
+				.addStanzaVincente("Biblioteca")
+				.addAdiacenza("ovest", "LabCampusOne","Biblioteca")
+				.getLabirinto();
+	}
+	
 	@Test
 	public void testLabirintoStanzaVincente() {
-		assertEquals("Biblioteca", game.getLabirinto().getStanzaVincente().getNome());
+		assertEquals("Biblioteca", labirinto.getStanzaVincente().getNome());
 	}
 	
 	@Test
 	public void testStanzaCorrente() {
-		game.getLabirinto().setStanzaCorrente(S);
-		assertEquals(S, game.getLabirinto().getStanzaCorrente());
+		assertEquals("LabCampusOne", labirinto.getStanzaCorrente().getNome());
 	}
 }

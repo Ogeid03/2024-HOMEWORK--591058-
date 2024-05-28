@@ -5,7 +5,7 @@ package diadia.giocatore;
  *  
  * @author Diego De Martino
  * @see Borsa
- * @version base 1.0
+ * @version base 3.1
 */
 public class Giocatore {
 	

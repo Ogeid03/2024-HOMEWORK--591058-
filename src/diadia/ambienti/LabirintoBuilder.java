@@ -11,7 +11,7 @@ import diadia.attrezzi.Attrezzo;
  *
  * @author  Diego De Martino
  * @see Attrezzo
- * @version 3.0
+ * @version 3.1
  */
 public class LabirintoBuilder {
 	private Labirinto labirinto;
@@ -91,11 +91,13 @@ public class LabirintoBuilder {
 	public LabirintoBuilder addAdiacenza(String direzione, String stanzaAttuale, String stanzaAdiacente) {
 	    Stanza attuale = this.stanze.get(stanzaAttuale);
 	    Stanza adiacente = this.stanze.get(stanzaAdiacente);
+	    
 	    attuale.impostaStanzaAdiacente(direzione, adiacente);
 	    String direzioneOpposta = calcolaDirezioneOpposta(direzione);
 	    adiacente.impostaStanzaAdiacente(direzioneOpposta, attuale);
 	    return this;
 	}
+	
 	/**
 	 * Calcola la direzione opposta a quella specificata.
 	 * @param direzione la direzione di partenza

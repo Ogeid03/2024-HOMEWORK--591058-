@@ -13,7 +13,7 @@ import diadia.attrezzi.Attrezzo;
  * 
  * @author docente di POO, Diego De Martino
  * @see Attrezzo
- * @version base 1.0
+ * @version base 3.1
 */
 
 public class Stanza {
@@ -60,8 +60,8 @@ public class Stanza {
      */
 	public Stanza getStanzaAdiacente(String direzione) {
         Stanza stanza = null;
-        	if (this.Direzione_stanzeAdiacenti.containsKey(direzione))
-        		stanza = this.Direzione_stanzeAdiacenti.get(direzione);
+        if (this.Direzione_stanzeAdiacenti.containsKey(direzione))
+        	stanza = this.Direzione_stanzeAdiacenti.get(direzione);
         return stanza;
 	}
 

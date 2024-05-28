@@ -23,7 +23,7 @@ import diadia.attrezzi.Attrezzo;
  * @author docente di POO, Diego De Martino
  * @see Attrezzo
  * @see Giocatore
- * @version base 1.0
+ * @version base 3.1
 */
 public class Borsa {
 	
@@ -133,6 +133,24 @@ public class Borsa {
 		return contenutoOrdinato;
 	}
 	
+	SortedSet<Attrezzo> getSortedSetOrdinatoPerPeso(){
+		SortedSet<Attrezzo> contenutoOrdinato = new TreeSet<>(new Comparator<Attrezzo>() {
+            @Override
+            public int compare(Attrezzo a1, Attrezzo a2) {
+                int diff = a1.getPeso() - a2.getPeso();
+                if (diff != 0) {
+                    return diff;
+                } else {
+                    return a1.getNome().compareTo(a2.getNome());
+                }
+            }
+        });
+	
+		contenutoOrdinato.addAll(slots.values());
+
+		return contenutoOrdinato;
+	}
+	
 	public SortedSet<Attrezzo> getContenutoOrdinatoPerNome(){
 	
 		SortedSet<Attrezzo> contenutoOrdinato = new TreeSet<>(new Comparator<Attrezzo>() {
@@ -142,6 +160,7 @@ public class Borsa {
 	        	return a1.getNome().compareTo(a2.getNome());
 	    	}
 		});
+		
 
 	    contenutoOrdinato.addAll(slots.values());
 
@@ -149,16 +168,13 @@ public class Borsa {
 	}
 	
 	public Map<Integer,Set<Attrezzo>> getContenutoRaggruppatoPerPeso(){
-		Map<Integer,Set<Attrezzo>> contenutoOrdinato = new HashMap<>();
-		
-		for (Attrezzo attrezzo : slots.values()) {
-            int peso = attrezzo.getPeso();
-
-            contenutoOrdinato.putIfAbsent(peso, new TreeSet<>());
-            contenutoOrdinato.get(peso).add(attrezzo);
-        }
-
-        return contenutoOrdinato;
+		 Map<Integer, Set<Attrezzo>> contenutoRaggruppato = new HashMap<>();
+	        for (Attrezzo attrezzo : this.slots.values()) {
+	            int peso = attrezzo.getPeso();
+	            contenutoRaggruppato.putIfAbsent(peso, new HashSet<>());
+	            contenutoRaggruppato.get(peso).add(attrezzo);
+	        }
+	        return contenutoRaggruppato;
     }
 
 
@@ -171,13 +187,50 @@ public class Borsa {
     public String toString() {
     	StringBuilder s = new StringBuilder();
     	if (!this.isEmpty()) {
-    		s.append("Contenuto borsa ("+this.getPeso()+"kg/"+this.getPesoMax()+"kg): ");
+    		s.append("Contenuto borsa ("+this.getPeso()+"kg/"+this.getPesoMax()+"kg)= ");
     		for (Map.Entry<String, Attrezzo> attrezzo : this.slots.entrySet())
-    			s.append(attrezzo.getValue().toString()+" ");
+    			s.append(attrezzo.getValue().getNome()+":"+attrezzo.getValue().getPeso()+"  ");
     	}
     	else s.append("Borsa vuota");
     	return s.toString();
     }
+    
+    /**
+	 * Restituisce una rappresentazione stringa di questa borsa,
+	 * formattata correttamente in base al sorting
+	 * @param map
+	 * @return stringa formattata correttamente
+	 */
+	public String toString (Map<Integer,Set<Attrezzo>> map) {
+	    StringBuilder result = new StringBuilder();
+	    String prefix = "(";
+	    for (Map.Entry<Integer,Set<Attrezzo>> entry : map.entrySet()) {
+	    	result.append(prefix);
+	    	result.append(entry.getKey() + ", ");  
+	        this.toString();
+	        result.append(this.toString(entry.getValue()));
+	        result.append("); ");
+	    }
+	    return result.toString();
+	}
+	
+	/**
+	 * Restituisce una rappresentazione stringa di questa borsa,
+	 * formattata correttamente in base al sorting
+	 * @param map
+	 * @return stringa formattata correttamente
+	 */
+	public String toString (Set<Attrezzo> set) {
+		StringBuilder result = new StringBuilder();
+	    String prefix = "{";
+	    for(Attrezzo a : set) {
+	        result.append(prefix);
+	        prefix = ", ";
+	        result.append(a);
+	    }
+	    result.append("}");
+	    return result.toString();
+	}
     
     public String getDescrizione() {
 		return this.toString();	

@@ -1,7 +1,6 @@
 package diadia.ambienti;
 
 import diadia.Partita;
-import diadia.attrezzi.Attrezzo;
 
 /**
  * Labirinto, questa classe modella la mappa di gioco
@@ -9,53 +8,12 @@ import diadia.attrezzi.Attrezzo;
  * @author Diego De Martino
  * @see Partita
  * @see Stanza
- * @version base 1.0
+ * @version base 3.1
  */
 
 public class Labirinto {
 	private Stanza stanzaCorrente;
 	private Stanza stanzaVincente;
-	
-/**
-    public void init() {
-
-		
-    	Attrezzo lanterna = new Attrezzo("lanterna",3);
-		Attrezzo osso = new Attrezzo("osso",1);
-    	
-		
-		Stanza atrio = new Stanza("Atrio");
-		Stanza aulaN11 = new Stanza("Aula N11");
-		Stanza aulaN10 = new Stanza("Aula N10");
-		Stanza laboratorio = new Stanza("Laboratorio Campus");
-		Stanza biblioteca = new Stanza("Biblioteca");
-		
-		//->Stanza listaS[] = {aulaN11, aulaN10, laboratorio, biblioteca};
-		
-		
-		atrio.impostaStanzaAdiacente("nord", biblioteca);
-		atrio.impostaStanzaAdiacente("est", aulaN11);
-		atrio.impostaStanzaAdiacente("sud", aulaN10);
-		atrio.impostaStanzaAdiacente("ovest", laboratorio);
-		aulaN11.impostaStanzaAdiacente("est", laboratorio);
-		aulaN11.impostaStanzaAdiacente("ovest", atrio);
-		aulaN10.impostaStanzaAdiacente("nord", atrio);
-		aulaN10.impostaStanzaAdiacente("est", aulaN11);
-		aulaN10.impostaStanzaAdiacente("ovest", laboratorio);
-		laboratorio.impostaStanzaAdiacente("est", atrio);
-		laboratorio.impostaStanzaAdiacente("ovest", aulaN11);
-		biblioteca.impostaStanzaAdiacente("sud", atrio);
-
-        
-		aulaN10.addAttrezzo(lanterna);
-		atrio.addAttrezzo(osso);
-
-		// il gioco comincia nell'atrio
-        stanzaCorrente = atrio;  
-		//->stanzaVincente = this.getRNDStanza(listaS);
-        stanzaVincente = biblioteca;
-    }
-**/
     
     public void setStanzaVincente(Stanza stanzaVincente) {
     	this.stanzaVincente = stanzaVincente;
@@ -71,6 +29,10 @@ public class Labirinto {
 
 	public Stanza getStanzaCorrente() {
 		return this.stanzaCorrente;
+	}
+	
+	public static LabirintoBuilder newLabBuilder() {
+		return new LabirintoBuilder();
 	}
 	
 	/**

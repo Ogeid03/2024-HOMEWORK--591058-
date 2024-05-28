@@ -1,5 +1,22 @@
 package diadia.ambienti;
 
+import diadia.attrezzi.Attrezzo;
+
+/**
+ * Classe StanzaBloccata - una stanza speciale in un gioco di ruolo.
+ * Una stanza e' un luogo fisico nel gioco.
+ * E' collegata ad altre stanze attraverso delle uscite.
+ * Ogni uscita e' associata ad una direzione.
+ * 
+ * Nel caso specifico di questa tipologia di stanze una/più delle stanze adiacenti
+ * può/possono risultare bloccate e accessibili solo se presente un determinato
+ * oggetto nella BORSA del PERSONAGGIO.
+ * 
+ * @author docente di POO, Diego De Martino
+ * @see Attrezzo
+ * @see Stanza
+ * @version base 3.1
+*/
 public class StanzaBloccata extends Stanza{
 	private String KEY;
 	private String lockedDoor;
@@ -31,7 +48,6 @@ public class StanzaBloccata extends Stanza{
 		if (this.Direzione_stanzeAdiacenti.containsKey(direzione))
 			stanza = this.Direzione_stanzeAdiacenti.get(direzione);
 		return stanza;
-		
 	}
 	
 	@Override

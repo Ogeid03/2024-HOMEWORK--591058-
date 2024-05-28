@@ -5,7 +5,7 @@ import java.util.Scanner;
  * Classe Input/Output gestisce tutti i System.in/System.out
  * 
  * @author Diego De Martino
- * @version base 1.0
+ * @version base 3.1
  */
 public class IOConsole implements IO{
 	

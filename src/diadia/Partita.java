@@ -8,7 +8,9 @@ import diadia.giocatore.Giocatore;
  *
  * @author  docente di POO, Diego De Martino
  * @see Labirinto
- * @version base 1.0
+ * @see giocatore
+ * @see IO
+ * @version base 3.1
  */
 
 public class Partita {
@@ -18,18 +20,19 @@ public class Partita {
 	private Giocatore player = new Giocatore();
 	private IO io;
 	
-	public Partita(IO io, Labirinto maze){
+
+	public Partita(IO io, Labirinto maze) {
 		this.finita = false;
 		this.io = io;
 		this.maze = maze;
-	}
+	}   
 
 	/**
 	 * Restituisce vero se e solo se la partita e' stata vinta
 	 * @return vero se partita vinta
 	 */
 	public boolean vinta() {
-		return this.maze.getStanzaCorrente()== maze.getStanzaVincente();
+		return this.maze.getStanzaCorrente() == maze.getStanzaVincente();
 	}
 
 	/**

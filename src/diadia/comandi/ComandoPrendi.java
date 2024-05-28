@@ -1,7 +1,19 @@
 package diadia.comandi;
 
 import diadia.Partita;
+import diadia.ambienti.Labirinto;
 
+/**
+ * Questa classe modella un comando di gioco.
+ * Richiamando il metodo ESEGUI viene spostato l'ATTREZZO
+ * passato come PARAMETRO dalla STANZA alla BORSA del
+ * GIOCATORE.
+ * 
+ * @author Diego De Martino
+ * @see Labirinto
+ * @see Borsa
+ * @version base 3.1
+ */
 public class ComandoPrendi implements Comando{
 	
 	private String attrezzo;
@@ -12,7 +24,6 @@ public class ComandoPrendi implements Comando{
 
 	/**
 	* esecuzione del comando
-	* 
 	* Mette l'oggetto presente nella borsa del giocatore nella stanza
 	* 
 	*/

@@ -2,14 +2,26 @@ package diadia;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import diadia.ambienti.Labirinto;
+import diadia.ambienti.LabirintoBuilder;
 
 class PartitaTest {
 	IO io = new IOConsole();
-	Labirinto labirinto = new Labirinto();
-	Partita game = new Partita(io, labirinto);
+	Labirinto labirinto;
+	Partita game;
+	
+	@BeforeEach
+	public void init() {
+		this.labirinto = new LabirintoBuilder()
+				.addStanzaIniziale("LabCampusOne")
+				.addStanzaVincente("Biblioteca")
+				.addAdiacenza("ovest", "LabCampusOne","Biblioteca")
+				.getLabirinto();
+		this.game = new Partita(io, labirinto);
+	}
 	
 	@Test
 	public void testIsFinitaFinita(){
@@ -24,7 +36,7 @@ class PartitaTest {
 	
 	@Test
 	public void testIsFinitaVinta() {
-		game.getLabirinto().setStanzaCorrente(game.getLabirinto().getStanzaVincente());
+		labirinto.setStanzaCorrente(labirinto.getStanzaVincente());
 		assertTrue(game.isFinita());
 	}
 	
@@ -36,7 +48,7 @@ class PartitaTest {
 	
 	@Test
 	public void testIsVinta() {
-		game.getLabirinto().setStanzaCorrente(game.getLabirinto().getStanzaVincente());
+		labirinto.setStanzaCorrente(labirinto.getStanzaVincente());
 		assertTrue(game.vinta());
 	}
 	
