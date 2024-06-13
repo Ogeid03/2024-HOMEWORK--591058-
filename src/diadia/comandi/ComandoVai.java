@@ -1,6 +1,7 @@
 package diadia.comandi;
 
 import diadia.Partita;
+import diadia.ambienti.Direzione;
 import diadia.ambienti.Labirinto;
 import diadia.ambienti.Stanza;
 
@@ -13,13 +14,17 @@ import diadia.ambienti.Stanza;
  * 
  * @author Diego De Martino
  * @see Labirinto
- * @version base 3.1
+ * @version base 4.0
  */
-public class ComandoVai implements Comando {
-	private String direzione;
+public class ComandoVai extends AbstractComando {
+	private Direzione direzione;
+	private final static String NOME = "vai";
 
+	public ComandoVai() {}
+	
 	public ComandoVai(String direzione) {
-		this.direzione = direzione;
+		Direzione dir = Direzione.valueOf(direzione);
+		this.direzione = dir;
 	}
 	
 
@@ -52,18 +57,8 @@ public class ComandoVai implements Comando {
 	}
 	
 	@Override
-	public void setParametro(String param) {
-		this.direzione = param;
-	}
-	
-	@Override
-	public String getParametro() {
-		return null;
-	}
-	
-	@Override
 	public String getNome() {
-		return null;
+		return NOME;
 	}
 	
 }

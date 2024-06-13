@@ -11,11 +11,13 @@ import diadia.ambienti.Labirinto;
  * @author Diego De Martino
  * @see Labirinto
  * @see Borsa
- * @version base 3.1
+ * @version base 4.0
  */
-public class ComandoAiuto implements Comando {
-	static final private String[] elencoComandi = {"vai", "prendi", "posa", "guarda", "aiuto", "fine"};
-	//private IOConsole IO = new IOConsole();
+public class ComandoAiuto extends AbstractComando {
+	static final private String[] elencoComandi = {"vai", "prendi", "posa", "guarda", "interagisci", "regala", "aiuto", "fine"};
+	private final static String NOME = "aiuto";
+	
+	public ComandoAiuto() {}
 	
 	@Override
 	public void esegui(Partita partita) {
@@ -26,18 +28,7 @@ public class ComandoAiuto implements Comando {
 	}
 	
 	@Override
-	public void setParametro(String param) {
-		//auto-generated
-	}
-	
-	@Override
-	public String getParametro() {
-		return null;
-	}
-	
-	@Override
 	public String getNome() {
-		return null;
+		return NOME;
 	}
-	
 }

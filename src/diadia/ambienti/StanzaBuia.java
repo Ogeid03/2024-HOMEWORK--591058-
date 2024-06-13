@@ -15,7 +15,7 @@ import diadia.attrezzi.Attrezzo;
  * @author docente di POO, Diego De Martino
  * @see Attrezzo
  * @see Stanza
- * @version base 3.1
+ * @version base 4.0
 */
 public class StanzaBuia extends Stanza{
 	private String light;
@@ -40,7 +40,7 @@ public class StanzaBuia extends Stanza{
 		if(this.hasAttrezzo(this.light)) {
 			risultato.append(this.getNome());
 			risultato.append("\nUscite: ");
-			for (String direzione : this.getDirezioni())
+			for (Direzione direzione : this.getDirezioni())
 					risultato.append(" " + direzione);
 			risultato.append("\n" + this.getDescrizioneAttrezzi());
 		}else risultato.append("Qui c'è buio pesto...");

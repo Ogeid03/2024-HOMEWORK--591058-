@@ -12,16 +12,19 @@ import diadia.ambienti.Labirinto;
  * @author Diego De Martino
  * @see Labirinto
  * @see Borsa
- * @version base 3.1
+ * @version base 4.0
  */
-public class ComandoPrendi implements Comando{
+public class ComandoPrendi extends AbstractComando{
 	
 	private String attrezzo;
+	private final static String NOME = "prendi";
+	
+	public ComandoPrendi() {}
 	
 	public ComandoPrendi(String param) {
 		this.attrezzo = param;
 	}
-
+	
 	/**
 	* esecuzione del comando
 	* Mette l'oggetto presente nella borsa del giocatore nella stanza
@@ -50,18 +53,8 @@ public class ComandoPrendi implements Comando{
 		
 	
 	@Override
-	public void setParametro(String param) {
-		this.attrezzo = param;
-	}
-	
-	@Override
-	public String getParametro() {
-		return null;
-	}
-	
-	@Override
 	public String getNome() {
-		return null;
+		return NOME;
 	}
 
 }

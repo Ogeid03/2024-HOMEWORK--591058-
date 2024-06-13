@@ -9,7 +9,8 @@ import diadia.attrezzi.Attrezzo;
 
 class StanzaBloccataTest {
 	
-	StanzaBloccata stanza = new StanzaBloccata("test", "chiave", "nord");
+	Direzione dir = Direzione.nord;
+	StanzaBloccata stanza = new StanzaBloccata("test", "chiave", dir);
 	Stanza stanza1 = new Stanza("test1");
 	
 	Attrezzo chiave = new Attrezzo("chiave", 1);
@@ -17,25 +18,25 @@ class StanzaBloccataTest {
 	
 	@BeforeEach
 	public void init() {
-		stanza.impostaStanzaAdiacente("nord", stanza1);
-		stanza1.impostaStanzaAdiacente("sud", stanza);
+		stanza.impostaStanzaAdiacente(dir, stanza1);
+		stanza1.impostaStanzaAdiacente(Direzione.sud, stanza);
 	}
 	
 	@Test
 	void testGetStanzaAdiacente() {
 		stanza.addAttrezzo(chiave);
-		assertEquals(stanza1, stanza.getStanzaAdiacente("nord"));
+		assertEquals(stanza1, stanza.getStanzaAdiacente(dir));
 	}
 	
 	@Test
 	void testGetStanzaAdiacenteNull() {
 		stanza.addAttrezzo(chiave);
-		assertNull(stanza.getStanzaAdiacente("sud"));
+		assertNull(stanza.getStanzaAdiacente(Direzione.sud));
 	}
 	
 	@Test
 	void testGetStanzaAdiacenteNoKey() {
-		assertEquals(stanza, stanza.getStanzaAdiacente("nord"));
+		assertEquals(stanza, stanza.getStanzaAdiacente(dir));
 	}
 
 }

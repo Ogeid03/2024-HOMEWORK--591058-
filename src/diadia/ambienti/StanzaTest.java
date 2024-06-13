@@ -14,18 +14,20 @@ class StanzaTest {
 	
 	@Test
 	public void testStanzaAdiacente() {
-		S.impostaStanzaAdiacente("nord", S1);
-		assertEquals(S1, S.getStanzaAdiacente("nord"));
+		S.impostaStanzaAdiacente(Direzione.nord, S1);
+		//System.out.println(S.toString());
+		assertEquals(S1, S.getStanzaAdiacente(Direzione.nord));
 	}
 	
 	@Test
 	public void testGetStanzaAdiacenteNULL() {
-		assertNull(S.getStanzaAdiacente("sud"));
+		assertNull(S.getStanzaAdiacente(Direzione.sud));
 	}
 	
 	@Test
 	public void testAddAttrezzo() {
 		S.addAttrezzo(A);
+		//System.out.println(S.toString());
 		assertTrue(S.hasAttrezzo("tastiera"));
 	}
 	

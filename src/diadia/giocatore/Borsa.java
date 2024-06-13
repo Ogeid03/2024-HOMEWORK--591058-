@@ -23,7 +23,7 @@ import diadia.attrezzi.Attrezzo;
  * @author docente di POO, Diego De Martino
  * @see Attrezzo
  * @see Giocatore
- * @version base 3.1
+ * @version base 4.0
 */
 public class Borsa {
 	

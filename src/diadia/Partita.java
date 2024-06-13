@@ -10,7 +10,7 @@ import diadia.giocatore.Giocatore;
  * @see Labirinto
  * @see giocatore
  * @see IO
- * @version base 3.1
+ * @version base 4.0
  */
 
 public class Partita {

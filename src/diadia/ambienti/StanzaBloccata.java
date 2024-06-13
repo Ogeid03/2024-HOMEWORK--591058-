@@ -15,13 +15,13 @@ import diadia.attrezzi.Attrezzo;
  * @author docente di POO, Diego De Martino
  * @see Attrezzo
  * @see Stanza
- * @version base 3.1
+ * @version base 4.0
 */
 public class StanzaBloccata extends Stanza{
 	private String KEY;
-	private String lockedDoor;
+	private Direzione lockedDoor;
 	
-	public StanzaBloccata(String nome, String chiave, String direzioneBloccata) {
+	public StanzaBloccata(String nome, String chiave, Direzione direzioneBloccata) {
 		super(nome);
 		this.KEY = chiave;
 		this.lockedDoor = direzioneBloccata;
@@ -33,15 +33,15 @@ public class StanzaBloccata extends Stanza{
 	public void setKey(String KEY) {
 		this.KEY = KEY;
 	}
-	public String getLockedDoor() {
+	public Direzione getLockedDoor() {
 		return this.lockedDoor;
 	}
-	public void setLockedDoor(String lockedDoor) {
+	public void setLockedDoor(Direzione lockedDoor) {
 		this.lockedDoor = lockedDoor;
 	}
 	
 	@Override
-	public Stanza getStanzaAdiacente(String direzione) {
+	public Stanza getStanzaAdiacente(Direzione direzione) {
 		if(direzione.equals(this.lockedDoor) && !(this.hasAttrezzo(this.KEY))) 
 			return this;
 		Stanza stanza = null;
@@ -55,7 +55,7 @@ public class StanzaBloccata extends Stanza{
 		StringBuilder risultato = new StringBuilder();
     	risultato.append(this.getNome());
     	risultato.append("\nUscite: ");
-    	for (String direzione : this.getDirezioni()) {
+    	for (Direzione direzione : this.getDirezioni()) {
     		if(direzione.equals(this.lockedDoor))
     			risultato.append(" " + direzione + "_(Bloccato)");
     		else if (direzione!=null)

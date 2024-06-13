@@ -1,6 +1,7 @@
 package diadia.comandi;
 //import java.util.Scanner;
 
+import diadia.IO;
 import diadia.Partita;
 
 /**
@@ -12,7 +13,7 @@ import diadia.Partita;
  *  corrisponde un comando di nome "vai" e parametro "nord").
  *
  * @author  docente di POO, Diego De Martino
- * @version base 1.0
+ * @version base 4.0
  */
 
 public interface Comando {
@@ -36,6 +37,8 @@ public interface Comando {
 	* get nome del comando
 	*/
 	public String getNome();
+
+	public void setIo(IO io);
 	
 	
 /* -------------------------------------------- */

@@ -11,11 +11,14 @@ import diadia.ambienti.Labirinto;
  * @author Diego De Martino
  * @see Labirinto
  * @see Borsa
- * @version base 3.1
+ * @version base 4.0
  */
-public class ComandoPosa implements Comando{
+public class ComandoPosa extends AbstractComando{
 	
 	private String attrezzo;
+	private final static String NOME = "aiuto";
+
+	public ComandoPosa() {}
 	
 	public ComandoPosa(String param) {
 		this.attrezzo = param;
@@ -47,18 +50,8 @@ public class ComandoPosa implements Comando{
 	}
 	
 	@Override
-	public void setParametro(String param) {
-		this.attrezzo = param;
-	}
-	
-	@Override
-	public String getParametro() {
-		return null;
-	}
-	
-	@Override
 	public String getNome() {
-		return null;
+		return NOME;
 	}
 
 }

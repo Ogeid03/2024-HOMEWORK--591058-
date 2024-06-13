@@ -12,7 +12,7 @@ import java.util.List;
  * 
  * @author Diego De Martino
  * @see IO
- * @version 3.1
+ * @version 4.0
  */
 public class IOSimulator implements IO {
 

@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import diadia.ambienti.Labirinto.LabirintoBuilder;
+
 class LabirintoTest {
 	static Labirinto labirinto;
 	
@@ -13,7 +15,7 @@ class LabirintoTest {
 	public void init() {
 		labirinto = new LabirintoBuilder().addStanzaIniziale("LabCampusOne")
 				.addStanzaVincente("Biblioteca")
-				.addAdiacenza("ovest", "LabCampusOne","Biblioteca")
+				.addAdiacenza(Direzione.ovest, "LabCampusOne","Biblioteca")
 				.getLabirinto();
 	}
 	

@@ -2,24 +2,23 @@ package diadia;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import diadia.ambienti.Direzione;
 import diadia.ambienti.Labirinto;
-import diadia.ambienti.LabirintoBuilder;
 
 class PartitaTest {
-	IO io = new IOConsole();
+	IO io = new IOConsole(new Scanner(System.in));
 	Labirinto labirinto;
 	Partita game;
 	
 	@BeforeEach
-	public void init() {
-		this.labirinto = new LabirintoBuilder()
-				.addStanzaIniziale("LabCampusOne")
-				.addStanzaVincente("Biblioteca")
-				.addAdiacenza("ovest", "LabCampusOne","Biblioteca")
-				.getLabirinto();
+	public void init() throws FileNotFoundException, FormatoFileNonValidoException {
+		this.labirinto =  Labirinto.newLabBuilder("labirinto.txt").getLabirinto();
 		this.game = new Partita(io, labirinto);
 	}
 	
@@ -31,6 +30,9 @@ class PartitaTest {
 	
 	@Test
 	public void testIsNotFinita(){
+		game.getIO().mostraMessaggio(game.getLabirinto().getStanzaCorrente().toString());
+		game.getIO().mostraMessaggio(game.getLabirinto().getStanzaVincente().toString());
+		System.out.println(game.getPlayer().getCFU());
 		assertFalse(game.isFinita());
 	}
 	

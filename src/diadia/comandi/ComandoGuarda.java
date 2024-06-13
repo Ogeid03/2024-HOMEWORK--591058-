@@ -11,10 +11,15 @@ import diadia.ambienti.Labirinto;
  * @author Diego De Martino
  * @see Labirinto
  * @see Borsa
- * @version base 3.1
+ * @version base 4.0
  */
-public class ComandoGuarda implements Comando{
+public class ComandoGuarda extends AbstractComando{
 	private String cosaGuardare;
+	private final static String NOME = "guarda";
+	
+	public ComandoGuarda() {
+        // Costruttore senza argomenti
+    }
 	
 	public ComandoGuarda(String cosaGuardare) {
 		this.cosaGuardare = cosaGuardare;
@@ -33,17 +38,12 @@ public class ComandoGuarda implements Comando{
 	}
 	
 	@Override
-	public void setParametro(String param) {
-		this.cosaGuardare = param;
-	}
-	
-	@Override
-	public String getParametro() {
-		return null;
-	}
-	
-	@Override
 	public String getNome() {
-		return null;
+		return NOME;
 	}
+	
+	public void setCosaGuardare(String cosaGuardare) {
+		this.cosaGuardare = cosaGuardare;
+	}
+	
 }

@@ -5,9 +5,17 @@ import java.util.Scanner;
  * Classe Input/Output gestisce tutti i System.in/System.out
  * 
  * @author Diego De Martino
- * @version base 3.1
+ * @version base 4.0
  */
 public class IOConsole implements IO{
+	
+	Scanner scannerDiLinee;
+	
+	public IOConsole() {}
+	
+	public IOConsole(Scanner scan) {
+		scannerDiLinee = scan;
+	}
 	
 	public void mostraMessaggio(String msg) {
 		System.out.println(msg);
@@ -18,7 +26,6 @@ public class IOConsole implements IO{
 	}
 	
 	public String leggiRiga() {
-		Scanner scannerDiLinee = new Scanner(System.in);
 		String riga = scannerDiLinee.nextLine();
 		//scannerDiLinee.close();
 		return riga;

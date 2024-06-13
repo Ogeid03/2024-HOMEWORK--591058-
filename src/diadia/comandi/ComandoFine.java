@@ -2,7 +2,10 @@ package diadia.comandi;
 
 import diadia.Partita;
 
-public class ComandoFine implements Comando {
+public class ComandoFine extends AbstractComando {
+	private final static String NOME = "fine";
+	
+	public ComandoFine() {}
 	
 	@Override
 	public void esegui(Partita partita) {
@@ -10,17 +13,8 @@ public class ComandoFine implements Comando {
 	}
 	
 	@Override
-	public void setParametro(String param) {
-		//auto-generated
-	}
-	
-	@Override
-	public String getParametro() {
-		return null;
-	}
-	
-	@Override
 	public String getNome() {
-		return null;
+		return NOME;
 	}
+
 }

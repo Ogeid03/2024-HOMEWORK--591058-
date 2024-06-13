@@ -96,6 +96,7 @@ class BorsaTest {
 		
 		//System.out.println(bag.getSortedSetOrdinatoPerPeso());
 		
+		
 		assertEquals("testFoglia", bag.getContenutoOrdinatoPerPeso().get(0).getNome());
 		assertEquals("testPiuma", bag.getContenutoOrdinatoPerPeso().get(1).getNome());
 		assertEquals("testStone", bag.getContenutoOrdinatoPerPeso().get(2).getNome());		

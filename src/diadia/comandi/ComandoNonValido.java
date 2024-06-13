@@ -11,10 +11,11 @@ import diadia.ambienti.Labirinto;
  * @author Diego De Martino
  * @see Labirinto
  * @see Borsa
- * @version base 3.1
+ * @version base 4.0
  */
-public class ComandoNonValido implements Comando{
-	
+public class ComandoNonValido extends AbstractComando{
+	private final static String NOME = "comandoNonValido";
+
 	
 	@Override
 	public void esegui(Partita partita) {
@@ -22,18 +23,10 @@ public class ComandoNonValido implements Comando{
 	}	
 	
 	@Override
-	public void setParametro(String param) {
-	}
-	
-	@Override
-	public String getParametro() {
-		return null;
-	}
-	
-	@Override
 	public String getNome() {
-		return null;
+		return NOME;
 	}
+
 	
 
 }
